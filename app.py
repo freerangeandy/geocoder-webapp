@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-import pandas
+from geocode_script import pandas, geocode_addresses
 
 app = Flask(__name__)
 
@@ -20,8 +20,8 @@ def success():
         else:
             return render_template("index.html", error="Please make sure you have an address column in your CSV file!")
 
-
-        return render_template("index.html", table=csv_df.to_numpy())
+        geocoded_df = geocode_addresses(csv_df, header)
+        return render_template("index.html", table=geocoded_df.to_numpy(), headers=geocoded_df.columns)
 
 if __name__ == '__main__':
     app.debug = True
