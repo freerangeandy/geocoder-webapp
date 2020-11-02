@@ -16,7 +16,15 @@
         {% if error %}
           {{ error | safe }}
         {% else %}
-          {{ table | safe }}
+          <table border=2>
+            {% for row in table %}
+              <tr>
+                {% for item in row %}
+                  <td>{{item|safe}}</td>
+                {% endfor %}
+              </tr>
+            {% endfor %}
+          </table>
         {% endif %}
       </div>
     </div>
