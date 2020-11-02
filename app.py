@@ -11,7 +11,7 @@ def index():
 def success():
     if request.method == 'POST':
         csv_file = request.files["csv_file"]
-        csv_df = pandas.read_csv(csv_file, index_col="ID")
+        csv_df = pandas.read_csv(csv_file)
         header = None
         if "Address" in csv_df.columns:
             header = "Address"
