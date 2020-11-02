@@ -12,13 +12,24 @@
         <input type="file" name="csv_file" accept=".csv" required />
         <button type="submit">Submit</button>
       </form>
-      <div class="message">
-        {% if error %}
-          {{ error | safe }}
-        {% else %}
-          {{ table | safe }}
-        {% endif %}
-      </div>
+      {% if error %}
+        <div class="message">{{ error | safe }}</div>
+      {% else %}
+        <table border=2>
+          <tr>
+          {% for label in headers %}
+            <td>{{label|safe}}</td>
+          {% endfor %}
+          </tr>
+          {% for row in table %}
+            <tr>
+              {% for item in row %}
+                <td>{{item|safe}}</td>
+              {% endfor %}
+            </tr>
+          {% endfor %}
+        </table>
+      {% endif %}
     </div>
   </body>
 </html>

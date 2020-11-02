@@ -49,3 +49,7 @@ html, body {
   font-size: 15px;
   color: #ff9999;
 }
+
+table {
+  margin: auto;
+}
