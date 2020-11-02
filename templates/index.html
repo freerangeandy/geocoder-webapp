@@ -8,12 +8,16 @@
     <div class="container">
       <h1>Super Geocoder</h1>
       <h4>Please upload your CSV file. The values containing addresses should be in a column named <i>address</i> or <i>Address</i></h4>
-      <form action="{{url_for('success')}}" method="POST">
-        <input type="file" id="csv_file" name="csv_file" accept=".csv" required />
+      <form action="{{url_for('success')}}" method="POST" enctype="multipart/form-data">
+        <input type="file" name="csv_file" accept=".csv" required />
         <button type="submit">Submit</button>
       </form>
       <div class="message">
-        {{ table | safe }}
+        {% if error %}
+          {{ error | safe }}
+        {% else %}
+          {{ table | safe }}
+        {% endif %}
       </div>
     </div>
   </body>
