@@ -13,7 +13,11 @@
         <button type="submit">Submit</button>
       </form>
       <div class="message">
-        {{ table | safe }}
+        {% if error %}
+          {{ error | safe }}
+        {% else %}
+          {{ table | safe }}
+        {% endif %}
       </div>
     </div>
   </body>
