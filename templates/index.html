@@ -14,7 +14,7 @@
       </form>
       {% if error %}
         <div class="message">{{ error | safe }}</div>
-      {% elif table.any() %}
+      {% elif table is defined %}
         <table border=2>
           <tr>
           {% for label in headers %}
