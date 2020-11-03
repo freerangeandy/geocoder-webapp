@@ -35,7 +35,7 @@ html, body {
 }
 
 .container button {
-  width: 70px;
+  min-width: 70px;
   height: 30px;
   background-color: steelblue;
   margin: 4px;
@@ -52,4 +52,8 @@ html, body {
 
 table {
   margin: auto;
+}
+
+.download {
+  padding-top: 10px;
 }

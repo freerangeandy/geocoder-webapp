@@ -14,7 +14,7 @@
       </form>
       {% if error %}
         <div class="message">{{ error | safe }}</div>
-      {% else %}
+      {% elif table is defined %}
         <table border=2>
           <tr>
           {% for label in headers %}
@@ -29,6 +29,7 @@
             </tr>
           {% endfor %}
         </table>
+        {% include btn ignore missing %}
       {% endif %}
     </div>
   </body>
