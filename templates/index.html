@@ -13,9 +13,9 @@
         <button type="submit">Submit</button>
       </form>
       {% if error %}
-        <div class="message">{{ error | safe }}</div>
+        <div class="message">{{error|safe}}</div>
       {% elif table is defined %}
-        {{table| safe}}
+        {{table|safe}}
         {% include btn ignore missing %}
       {% endif %}
     </div>
