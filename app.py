@@ -23,7 +23,7 @@ def success():
         geocoded_df = geocode_addresses(csv_df, header)
         geocoded_csv_path = "geocoded_"+csv_file.filename
         geocoded_df.to_csv(geocoded_csv_path)
-        return render_template("index.html", table=geocoded_df.to_numpy(), headers=geocoded_df.columns, btn="download.html")
+        return render_template("index.html", table=geocoded_df.to_html(), btn="download.html")
 
 @app.route("/download")
 def download():
