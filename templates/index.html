@@ -13,22 +13,9 @@
         <button type="submit">Submit</button>
       </form>
       {% if error %}
-        <div class="message">{{ error | safe }}</div>
+        <div class="message">{{error|safe}}</div>
       {% elif table is defined %}
-        <table border=2>
-          <tr>
-          {% for label in headers %}
-            <td>{{label|safe}}</td>
-          {% endfor %}
-          </tr>
-          {% for row in table %}
-            <tr>
-              {% for item in row %}
-                <td>{{item|safe}}</td>
-              {% endfor %}
-            </tr>
-          {% endfor %}
-        </table>
+        {{table|safe}}
         {% include btn ignore missing %}
       {% endif %}
     </div>
